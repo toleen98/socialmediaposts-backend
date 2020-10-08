@@ -1,0 +1,24 @@
+{
+  "name": "socialmediaposts-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toleen98/socialmediaposts-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toleen98/socialmediaposts-backend/issues"
+  },
+  "homepage": "https://github.com/toleen98/socialmediaposts-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.8",
+    "passport": "^0.4.1"
+  }
+}
