@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080;
+const passport = require("passport");
+const users = require("./routes/api/users");
+const posts = require("./routes/api/posts");
 
 const app = express();
 
@@ -26,9 +29,18 @@ mongoose
   .catch(err => console.log(err)
   );
 
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
+
+app.use("/api/users", users);
+app.use("/api/post", posts);
  
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT} `)});

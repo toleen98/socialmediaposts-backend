@@ -6,6 +6,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  user_id: {
+    type: String,
+    required: true
+  },
   avatar: {
     type: String,
     
@@ -18,11 +22,11 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  imdUrl: {
+  imgUrl: {
     type: String,
     default: null
   },
-  vedioUrl: {
+  videoUrl: {
     type: String,
     default: null
   },
@@ -45,6 +49,5 @@ const PostSchema = new Schema({
  
 });
 
-let  Post = mongoose.model("posts", PostSchema);
 
-module.exports.Post = Post;
+module.exports = Post = mongoose.model("posts", PostSchema);
