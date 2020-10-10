@@ -64,7 +64,25 @@ router.delete('/deletepost', (req, res) => {
         return res.status(202).json(result)
     })
     .catch(error => res.json(error))
-})
+});
+
+//update post likes count
+router.put("/updatepostLikesCount", (req, res) => {
+    const updates = {
+        $set:{
+            likes_count : req.body.likes_count
+        }
+    }
+
+    Post.findOneAndUpdate({_id:req.body._id}, updates,null)
+    .then(post => {
+        return res.status(202).json(post);
+    })
+    .catch(error => console.error(error));
+
+
+    
+});
 
 module.exports = router;
 
