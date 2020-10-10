@@ -30,8 +30,8 @@ router.post("/createpost", (req, res) => {
 
     newPost
         .save()
-        .then(user => res.json(user))
-        .catch(err => console.log(err));
+        .then(post => res.json(post))
+        .catch(err => res.json(err));
        
 });
 
