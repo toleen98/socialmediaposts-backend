@@ -21,11 +21,12 @@ router.post("/createpost", (req, res) => {
         title: req.body.title,
         description:req.body.description,
         imgUrl:req.body.imgUrl,
-        vedioUrl: req.body.vedioUrl,
+        videoUrl: req.body.videoUrl,
         likes_count:req.body.likes_count ,
         createdAt:req.body.createdAt ,
         updatedAt: req.body.updatedAt,
-        deletedAt: req.body.deletedAt
+        deletedAt: req.body.deletedAt,
+        liked_users:req.body.liked_users
     });
 
     newPost
@@ -70,7 +71,8 @@ router.delete('/deletepost', (req, res) => {
 router.put("/updatepostLikesCount", (req, res) => {
     const updates = {
         $set:{
-            likes_count : req.body.likes_count
+            likes_count : req.body.likes_count,
+            liked_users:req.body.liked_users
         }
     }
 
