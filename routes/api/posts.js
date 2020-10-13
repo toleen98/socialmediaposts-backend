@@ -26,7 +26,8 @@ router.post("/createpost", (req, res) => {
         createdAt:req.body.createdAt ,
         updatedAt: req.body.updatedAt,
         deletedAt: req.body.deletedAt,
-        liked_users:req.body.liked_users
+        liked_users:req.body.liked_users,
+        comments:req.body.comments
     });
 
     newPost
@@ -84,6 +85,30 @@ router.put("/updatepostLikesCount", (req, res) => {
 
 
     
+});
+
+//add comment 
+router.put("/addComment", (req, res) => {
+    Post.findOneAndUpdate({_id:req.body._id}, 
+        {
+            $push : {
+                comments : {
+                    name:req.body.comment.name,
+                    comment:req.body.comment.comment,
+                    avatar:req.body.comment.avatar,
+                    user_id:req.body.comment.user_id,
+                    date: Date.now(),
+                    
+                }  
+            }
+            
+        },null)
+    .then(post => {
+        console.log(post)
+        return res.status(202).json(post);
+    })
+    .catch(error => console.error(error));
+   
 });
 
 module.exports = router;

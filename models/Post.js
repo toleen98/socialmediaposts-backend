@@ -1,6 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//creat subDocument
+const child = new Schema ({
+  name:{
+    type:String
+  }, 
+  avatar: {
+    type:String,
+    
+  },
+  date: {
+    type:Date,
+    default: Date.now
+  },
+  comment: {
+    type:String
+  }
+})
 // Create Schema
 const PostSchema = new Schema({
   name: {
@@ -52,7 +69,7 @@ const PostSchema = new Schema({
     default: null
   },
   comments: {
-    type: Array,
+    type:Array,
     default:[]
   }
   
