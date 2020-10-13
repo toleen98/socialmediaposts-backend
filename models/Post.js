@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 // Create Schema
 const PostSchema = new Schema({
   name: {
@@ -49,7 +50,13 @@ const PostSchema = new Schema({
   deletedAt: {
     type: Date,
     default: null
+  },
+  comments: {
+    type: Array,
+    default:[]
   }
+  
+
  
 });
 
